@@ -8,8 +8,8 @@ I'm a **Software Developer** focused on building robust backend systems and clea
 - **Tools:** Git, Docker, Git Fork
 - **Database:** MySQL, PostgreSQL
 
-- 🔭 I’m currently working on backend API with nestjs and prisma with postgres
-- 🌱 I’m currently learning typescript, graphql, and orm's
+🔭 I’m currently working on backend API with nestjs and prisma with postgres
+🌱 I’m currently learning typescript, graphql, and orm's
 
 ---
 
@@ -26,13 +26,13 @@ These cards update automatically based on my activity across all my repositories
 ---
 
 ### 📁 Featured Projects
-- **E**: Short description of your most significant Java project.
+- **[Project Name 1]**: Short description of your most significant Java project.
 - **[Project Name 2]**: Short description of a web or mobile app you built.
 
 ### 📫 How to reach me
 - 📧 Email: do.earljan@gmail.com
 - 💼 LinkedIn: https://www.linkedin.com/in/earl-jan-do-303253194/
-- 🌐 Portfolio: [Your Website Link]
+- 🌐 Portfolio: https://erzan12.github.io/Erzan12/
 
 ---
 *“I am not perfect, I just keep on showing up”*
