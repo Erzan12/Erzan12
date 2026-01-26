@@ -3,56 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erzan | Software Developer</title>
+    <title>Erzan | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .link-card { transition: transform 0.2s, border-color 0.2s; }
-        .link-card:hover { transform: translateY(-2px); }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .link-card { transition: all 0.3s ease; }
+        .link-card:hover { transform: translateY(-3px); }
+        .tab-btn.active { background-color: #38bdf8; color: #0f172a; border-color: #38bdf8; }
+        .hidden-item { display: none; }
     </style>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        maritime: '#0f172a', 
-                        accent: '#38bdf8',
-                    }
+                    colors: { maritime: '#0f172a', accent: '#38bdf8' }
                 }
             }
         }
+
+        function filterSection(category) {
+            const items = document.querySelectorAll('.project-item');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            buttons.forEach(btn => {
+                if(btn.getAttribute('data-filter') === category) {
+                    btn.classList.add('active');
+                    btn.classList.remove('text-slate-400');
+                } else {
+                    btn.classList.remove('active');
+                    btn.classList.add('text-slate-400');
+                }
+            });
+
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.classList.remove('hidden-item');
+                } else {
+                    item.classList.add('hidden-item');
+                }
+            });
+        }
     </script>
 </head>
-<body class="bg-maritime text-slate-300 min-h-screen flex flex-col items-center justify-center p-6">
+<body class="bg-maritime text-slate-300 min-h-screen flex flex-col items-center p-6">
 
-    <main class="w-full max-w-lg mx-auto text-center space-y-8">
+    <main class="w-full max-w-lg mx-auto text-center space-y-8 mt-10">
         <header class="space-y-4">
             <div class="relative inline-block">
-                <img src="https://github.com/Erzan12.png" alt="Erzan" class="w-32 h-32 rounded-full border-4 border-slate-700 shadow-xl mx-auto">
+                <img src="https://github.com/Erzan12.png" alt="Erzan" class="w-32 h-32 rounded-full border-4 border-slate-700 shadow-xl mx-auto grayscale hover:grayscale-0 transition-all duration-500">
                 <span class="absolute bottom-2 right-2 w-4 h-4 bg-green-500 border-2 border-maritime rounded-full"></span>
             </div>
-
             <div>
-                <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Erzan</h1>
-                <p class="text-accent font-medium mt-2 text-lg">Software Developer</p>
-            </div>
-
-            <div class="text-slate-400 text-sm md:text-base leading-relaxed max-w-md mx-auto">
-                <p>Building robust backend systems and modern web applications. Focused on clean code and efficient architectures.</p>
+                <h1 class="text-3xl font-bold text-white tracking-tight">Erzan</h1>
+                <p class="text-accent font-medium mt-2">Software Developer & System Architect</p>
+                <p class="text-xs text-slate-500 mt-1 uppercase tracking-widest">Java • Spring Boot • Web Development</p>
             </div>
         </header>
 
-        <nav class="flex flex-col gap-4 w-full">
-            <a href="https://github.com/Erzan12" class="link-card group flex items-center justify-between bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-accent px-5 py-4 rounded-xl text-left no-underline">
+        <nav class="flex flex-col gap-3 w-full">
+            <a href="https://github.com/Erzan12" class="link-card group flex items-center justify-between bg-slate-800/50 border border-slate-700 hover:border-accent px-5 py-4 rounded-xl text-left no-underline">
                 <div class="flex items-center gap-4">
                     <div class="bg-slate-700 text-white p-2 rounded-lg w-10 h-10 flex items-center justify-center group-hover:bg-accent group-hover:text-maritime transition-colors">
                         <i class="fab fa-github"></i>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-white">GitHub Profile</h3>
-                        <p class="text-xs text-slate-400">View my latest repositories and contributions</p>
+                        <h3 class="font-semibold text-white text-sm">Main Repository</h3>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-tighter">Source Code & Documentation</p>
                     </div>
                 </div>
                 <i class="fas fa-chevron-right text-slate-600 group-hover:text-white"></i>
@@ -61,23 +79,68 @@
 
         <section class="w-full text-left pt-6 border-t border-slate-800">
             <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <span class="text-accent"><i class="fas fa-toolbox"></i></span> Tech Toolbox
+                <span class="text-accent"><i class="fas fa-flask"></i></span> Project Lab
             </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-start gap-3">
-                    <div class="text-accent text-xl"><i class="fab fa-java"></i></div>
-                    <div><span class="block font-bold text-slate-200 text-sm">Java</span></div>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+                <button onclick="filterSection('all')" class="tab-btn active px-4 py-1 text-xs font-bold rounded-full border border-slate-700 transition-all" data-filter="all">All</button>
+                <button onclick="filterSection('java')" class="tab-btn px-4 py-1 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="java">Java</button>
+                <button onclick="filterSection('web')" class="tab-btn px-4 py-1 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="web">Web</button>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4">
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="java">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">Java Enterprise Systems</h3>
+                            <span class="text-[10px] text-accent font-mono">BACKEND &bull; LOGIC</span>
+                        </div>
+                        <a href="#" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">SOURCE</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Scalable Java applications focusing on object-oriented design and efficient data handling.</p>
                 </div>
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-start gap-3">
-                    <div class="text-accent text-xl"><i class="fab fa-js"></i></div>
-                    <div><span class="block font-bold text-slate-200 text-sm">JavaScript</span></div>
+
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="web">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">Interactive Web UI</h3>
+                            <span class="text-[10px] text-accent font-mono">FRONTEND &bull; JS</span>
+                        </div>
+                        <a href="#" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">DEMO</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Responsive user interfaces built with HTML5, CSS3, and JavaScript modern standards.</p>
                 </div>
             </div>
         </section>
-        
-        <footer class="text-xs text-slate-500 pt-8">
-            © 2026 Erzan • Hosted on GitHub Pages
+
+        <section class="w-full text-left pt-6 border-t border-slate-800">
+            <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <span class="text-accent"><i class="fas fa-toolbox"></i></span> Skill Stack
+            </h2>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/oracle/38bdf8" class="w-5 h-5" alt="Java">
+                    <span class="text-xs font-bold text-slate-200">Java</span>
+                </div>
+                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/springboot/38bdf8" class="w-5 h-5" alt="Spring">
+                    <span class="text-xs font-bold text-slate-200">Spring</span>
+                </div>
+                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/javascript/38bdf8" class="w-5 h-5" alt="JS">
+                    <span class="text-xs font-bold text-slate-200">JavaScript</span>
+                </div>
+                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/git/38bdf8" class="w-5 h-5" alt="Git">
+                    <span class="text-xs font-bold text-slate-200">Version Control</span>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-[10px] text-slate-600 pt-10 pb-5 uppercase tracking-widest">
+            &copy; 2026 Erzan &bull; Built with Tailwind CSS
         </footer>
     </main>
+
 </body>
 </html>
