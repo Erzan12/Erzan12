@@ -115,6 +115,103 @@
 
         <section class="w-full text-left pt-6 border-t border-slate-800">
             <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <span class="text-accent"><i class="fas fa-flask"></i></span> Project Lab
+            </h2>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+                <button onclick="filterSection('all')" class="tab-btn active px-4 py-1 text-xs font-bold rounded-full border border-slate-700 transition-all" data-filter="all">All</button>
+                <button onclick="filterSection('java')" class="tab-btn px-4 py-1 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="java">Java</button>
+                <button onclick="filterSection('web')" class="tab-btn px-4 py-1 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="web">Web</button>
+            </div>
+        
+            <div class="grid grid-cols-1 gap-4">
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="java">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">Enrollment Management System</h3>
+                            <span class="text-[10px] text-accent font-mono">JAVA &bull; SWING &bull; SQL</span>
+                        </div>
+                        <a href="https://github.com/Erzan12" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">A desktop-based management system handling student records, course validation, and database persistence.</p>
+                </div>
+        
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="java">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">E-Commerce Backend Logic</h3>
+                            <span class="text-[10px] text-accent font-mono">OOP &bull; DATA STRUCTURES</span>
+                        </div>
+                        <a href="https://github.com/Erzan12" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Core business logic for cart systems, inventory tracking, and order processing using Object-Oriented principles.</p>
+                </div>
+        
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="web">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">Responsive Web Components</h3>
+                            <span class="text-[10px] text-accent font-mono">HTML5 &bull; CSS3 &bull; JS</span>
+                        </div>
+                        <a href="https://github.com/Erzan12" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">DEMO</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Collection of modern, responsive UI components designed for high-performance web applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full text-left pt-6 border-t border-slate-800">
+            <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <span class="text-accent"><i class="fas fa-toolbox"></i></span> Skill Stack
+            </h2>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/openjdk/38bdf8" class="w-5 h-5" alt="Java">
+                    <div>
+                        <span class="block font-bold text-slate-200 text-xs">Java SE/EE</span>
+                        <span class="block text-[10px] text-slate-500">Core Systems</span>
+                    </div>
+                </div>
+                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/springboot/38bdf8" class="w-5 h-5" alt="Spring">
+                    <div>
+                        <span class="block font-bold text-slate-200 text-xs">Spring Boot</span>
+                        <span class="block text-[10px] text-slate-500">Backend APIs</span>
+                    </div>
+                </div>
+                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/mysql/38bdf8" class="w-5 h-5" alt="SQL">
+                    <div>
+                        <span class="block font-bold text-slate-200 text-xs">MySQL</span>
+                        <span class="block text-[10px] text-slate-500">Database Design</span>
+                    </div>
+                </div>
+                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/javascript/38bdf8" class="w-5 h-5" alt="JS">
+                    <div>
+                        <span class="block font-bold text-slate-200 text-xs">JavaScript</span>
+                        <span class="block text-[10px] text-slate-500">Web Interaction</span>
+                    </div>
+                </div>
+                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/git/38bdf8" class="w-5 h-5" alt="Git">
+                    <div>
+                        <span class="block font-bold text-slate-200 text-xs">Git/GitHub</span>
+                        <span class="block text-[10px] text-slate-500">Version Control</span>
+                    </div>
+                </div>
+                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/tailwindcss/38bdf8" class="w-5 h-5" alt="Tailwind">
+                    <div>
+                        <span class="block font-bold text-slate-200 text-xs">Tailwind CSS</span>
+                        <span class="block text-[10px] text-slate-500">Modern Styling</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full text-left pt-6 border-t border-slate-800">
+            <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
                 <span class="text-accent"><i class="fas fa-toolbox"></i></span> Skill Stack
             </h2>
             <div class="grid grid-cols-2 gap-3">
