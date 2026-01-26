@@ -8,8 +8,8 @@ I'm a **Software Developer** focused on building robust backend systems and clea
 - **Tools:** Git, Docker, Git Fork
 - **Database:** MySQL, PostgreSQL
 
-🔭 I’m currently working on backend API with nestjs and prisma with postgres
-🌱 I’m currently learning typescript, graphql, and orm's
+🔭 I’m currently working on backend API with nestjs and prisma with postgres.
+🌱 I’m currently learning typescript, graphql, and orm's.
 
 ---
 
