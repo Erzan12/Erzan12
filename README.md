@@ -1,6 +1,6 @@
 # Hi there, I'm Erzan! 👋
 
-I'm a **Software Developer** focused on building robust backend systems and clean user interfaces. I enjoy solving complex problems through structured code and exploring the latest in Java and Web technologies.
+I'm a **Software Developer** focused on building robust backend systems and clean user interfaces. I enjoy solving complex problems through structured code and exploring the latest in Web technologies.
 
 ### 🛠 Tech Stack
 - **Languages:** PHP(CI), JavaScript, HTML/CSS, TypeScript
