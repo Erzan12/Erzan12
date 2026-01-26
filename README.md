@@ -3,7 +3,7 @@
 I'm a **Software Developer** focused on building robust backend systems and clean user interfaces. I enjoy solving complex problems through structured code and exploring the latest in Java and Web technologies.
 
 ### 🛠 Tech Stack
-- **Languages:** PHP(CI), JavaScript, Dart, HTML/CSS, TypeScript
+- **Languages:** PHP(CI), JavaScript, HTML/CSS, TypeScript
 - **Frameworks:** Nestjs, Laravel
 - **Tools:** Git, Docker, Git Fork
 - **Database:** MySQL, PostgreSQL
@@ -26,7 +26,7 @@ These cards update automatically based on my activity across all my repositories
 ---
 
 ### 📁 Featured Projects
-- **[Project Name 1]**: Short description of your most significant Java project.
+- **E**: Short description of your most significant Java project.
 - **[Project Name 2]**: Short description of a web or mobile app you built.
 
 ### 📫 How to reach me
