@@ -92,9 +92,9 @@ def generate_project_html(repos):
                     <p class="text-xs text-slate-400 leading-relaxed">{repo['description'] or 'No description provided'}</p>
                 </div>
 '''
-            project_html.append(html)
+        project_html.append(html)
 
-        return '\n'.join(project_html)
+    return '\n'.join(project_html)
 
 def update_html_file(project_html):
     """Read the current HTML file and update the projects section"""
