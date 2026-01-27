@@ -57,7 +57,7 @@ def fetch_github_repos():
         prin(f"Error fetching repos: {e}")
         return []
 
-def generate_project_html(repos)
+def generate_project_html(repos):
     """Generate HTML for project items"""
     project_html = []
 
