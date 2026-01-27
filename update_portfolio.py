@@ -19,7 +19,7 @@ def get_category(repo_name, topics, description):
     repo_lower = repo_name.lower()
     desc_lower = (description or '').lower()
 
-    for category, keywords in CATEGORY_KEYWORDS.item():
+    for category, keywords in CATEGORY_KEYWORDS.items():
         for keyword in keywords:
             if keyword in repo_lower or keyword in desc_lower or keyword in topics:
                 return category
