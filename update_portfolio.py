@@ -91,7 +91,7 @@ def generate_project_html(repos):
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed">{repo['description'] or 'No description provided'}</p>
                 </div>
-            '''
+'''
             project_html.append(html)
 
         return '\n'.join(project_html)
