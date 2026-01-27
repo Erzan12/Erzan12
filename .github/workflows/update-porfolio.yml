@@ -1,0 +1,51 @@
+name: Update Portfolio
+
+on:
+  schedule:
+    # Runs at midnight UTC (8 AM PHT) every day
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual trigger
+  push: 
+    branches:
+      - main
+    paths:
+      - 'update_portfolio.py'
+
+jobs:
+  update-portfolio:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install request
+
+      - name: Run portfolio update script
+        run: |
+          python update_portfolio.py
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo  "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push if changed
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add index.html
+          git commit -m "🤖 Auto-update portfolio - $(date +'%Y-%m-%d %H:%M:%S')"
+          git push
