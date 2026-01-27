@@ -3,16 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erzan | Portfolio</title>
+    <title>Erzan | Software Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .link-card { transition: all 0.3s ease; }
-        .link-card:hover { transform: translateY(-3px); }
-        .tab-btn.active { background-color: #38bdf8; color: #0f172a; border-color: #38bdf8; }
-        .hidden-item { display: none; }
+        body { 
+            font-family: 'JetBrains Mono', monospace; 
+            scroll-behavior: smooth;
+            background: linear-gradient(135deg, #0a0e1a 0%, #0f172a 50%, #1a1f35 100%);
+            background-attachment: fixed;
+        }
+        
+        h1, h2, h3 { font-family: 'Syne', sans-serif; }
+        
+        /* Animated gradient background */
+        .bg-animated {
+            background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Glowing border effect */
+        .glow-border {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #38bdf8, #818cf8, #38bdf8);
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+            animation: rotateBorder 3s linear infinite;
+        }
+        
+        .glow-border:hover::before {
+            opacity: 1;
+        }
+        
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Animated profile picture */
+        .profile-img {
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+        
+        .profile-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Link card animations */
+        .link-card { 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        
+        .link-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(135deg, transparent, #38bdf8, transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .link-card:hover::before {
+            opacity: 1;
+        }
+        
+        .link-card:hover { 
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+        }
+        
+        /* Tab button animations */
+        .tab-btn {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .tab-btn.active { 
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a; 
+            border-color: #38bdf8;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+        }
+        
+        .tab-btn:not(.active):hover {
+            border-color: #38bdf8;
+            transform: translateY(-2px);
+        }
+        
+        /* Project items fade-in animation */
+        .project-item {
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .project-item:nth-child(1) { animation-delay: 0.1s; }
+        .project-item:nth-child(2) { animation-delay: 0.15s; }
+        .project-item:nth-child(3) { animation-delay: 0.2s; }
+        .project-item:nth-child(4) { animation-delay: 0.25s; }
+        .project-item:nth-child(5) { animation-delay: 0.3s; }
+        
+        .hidden-item { 
+            display: none;
+            animation: none;
+        }
+        
+        /* Skill card hover effect */
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.1));
+            transform: translateX(5px);
+            border-color: #38bdf8;
+        }
+        
+        /* Text gradient effect */
+        .text-gradient {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Typing animation for subtitle */
+        .typing {
+            overflow: hidden;
+            border-right: 2px solid #38bdf8;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40) 1s 1 normal both, blink 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        
+        /* Floating animation */
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Particle effect background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #38bdf8;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 20s linear infinite;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* Scroll reveal */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #38bdf8, #818cf8);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
     </style>
     <script>
         tailwind.config = {
@@ -37,515 +289,352 @@
                 }
             });
 
-            items.forEach(item => {
+            items.forEach((item, index) => {
                 if (category === 'all' || item.getAttribute('data-category') === category) {
                     item.classList.remove('hidden-item');
+                    item.style.animationDelay = (index * 0.05) + 's';
                 } else {
                     item.classList.add('hidden-item');
                 }
             });
         }
+        
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('revealed');
+                }
+            });
+        }
+        
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            createParticles();
+            revealOnScroll();
+        });
+        
+        window.addEventListener('scroll', revealOnScroll);
+        
+        // Add smooth counting animation for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 30);
+        }
     </script>
 </head>
-<body class="bg-maritime text-slate-300 min-h-screen flex flex-col items-center p-6">
+<body class="bg-animated text-slate-300 min-h-screen flex flex-col items-center p-6">
+    <!-- Particle background -->
+    <div class="particles"></div>
 
     <main class="w-full max-w-lg mx-auto text-center space-y-8 mt-10">
         <header class="space-y-4">
-            <div class="relative inline-block">
-                <img src="https://github.com/Erzan12.png" alt="Erzan" class="w-32 h-32 rounded-full border-4 border-slate-700 shadow-xl mx-auto grayscale hover:grayscale-0 transition-all duration-500">
-                <span class="absolute bottom-2 right-2 w-4 h-4 bg-green-500 border-2 border-maritime rounded-full"></span>
+            <div class="relative inline-block float">
+                <img src="https://github.com/Erzan12.png" alt="Erzan" class="profile-img w-32 h-32 rounded-full border-4 border-accent shadow-2xl mx-auto grayscale hover:grayscale-0">
+                <span class="absolute bottom-2 right-2 w-4 h-4 bg-green-400 border-2 border-maritime rounded-full profile-pulse"></span>
             </div>
             <div>
-                <h1 class="text-3xl font-bold text-white tracking-tight">Erzan</h1>
-                <p class="text-accent font-medium mt-2">Software Developer & Tech Enthusiast</p>
-                <p class="text-xs text-slate-500 mt-1 uppercase tracking-widest">Web and System Development</p>
+                <h1 class="text-4xl font-extrabold text-white tracking-tight mb-2">
+                    <span class="text-gradient">Erzan</span>
+                </h1>
+                <p class="text-accent font-semibold text-lg mt-2">Software Developer & Tech Enthusiast</p>
+                <p class="text-xs text-slate-400 mt-2 uppercase tracking-widest font-light">Building Digital Solutions</p>
             </div>
         </header>
 
-        <nav class="flex flex-col gap-3 w-full">
-            <a href="https://github.com/Erzan12" class="link-card group flex items-center justify-between bg-slate-800/50 border border-slate-700 hover:border-accent px-5 py-4 rounded-xl text-left no-underline">
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-3 gap-3 scroll-reveal">
+            <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-4 hover:border-accent transition-all">
+                <div class="text-2xl font-bold text-accent" id="projects-count">12+</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wide">Projects</div>
+            </div>
+            <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-4 hover:border-accent transition-all">
+                <div class="text-2xl font-bold text-accent">5+</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wide">Tech Stack</div>
+            </div>
+            <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-4 hover:border-accent transition-all">
+                <div class="text-2xl font-bold text-accent">24/7</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wide">Available</div>
+            </div>
+        </div>
+
+        <nav class="flex flex-col gap-3 w-full scroll-reveal">
+            <a href="https://github.com/Erzan12" class="link-card glow-border group flex items-center justify-between bg-slate-800/50 border border-slate-700 hover:border-accent px-5 py-4 rounded-xl text-left no-underline">
                 <div class="flex items-center gap-4">
-                    <div class="bg-slate-700 text-white p-2 rounded-lg w-10 h-10 flex items-center justify-center group-hover:bg-accent group-hover:text-maritime transition-colors">
-                        <i class="fab fa-github"></i>
+                    <div class="bg-gradient-to-br from-slate-700 to-slate-800 text-white p-2 rounded-lg w-10 h-10 flex items-center justify-center group-hover:from-accent group-hover:to-blue-500 group-hover:text-maritime transition-all duration-300 group-hover:rotate-12">
+                        <i class="fab fa-github text-lg"></i>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-white text-sm">Main Repository</h3>
-                        <p class="text-[10px] text-slate-400 uppercase tracking-tighter">Source Code & Documentation</p>
+                        <h3 class="font-bold text-white text-sm">Main Repository</h3>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-tight">Source Code & Documentation</p>
                     </div>
                 </div>
-                <i class="fas fa-chevron-right text-slate-600 group-hover:text-white"></i>
+                <i class="fas fa-arrow-right text-slate-600 group-hover:text-accent group-hover:translate-x-1 transition-all"></i>
             </a>
         </nav>
 
-        <section class="w-full text-left pt-6 border-t border-slate-800">
-            <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <span class="text-accent"><i class="fas fa-flask"></i></span> Project Lab
+        <section class="w-full text-left pt-6 border-t border-slate-800 scroll-reveal">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <span class="text-accent"><i class="fas fa-flask"></i></span> 
+                <span class="text-gradient">Project Lab</span>
             </h2>
             
             <div class="flex flex-wrap gap-2 mb-6">
-                <button onclick="filterSection('all')" class="tab-btn active px-4 py-1 text-xs font-bold rounded-full border border-slate-700 transition-all" data-filter="all">All</button>
-                <button onclick="filterSection('erp')" class="tab-btn px-4 py-1 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="erp">ERP</button>
-                <button onclick="filterSection('web')" class="tab-btn px-4 py-1 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="Web">Web</button>
-                <button onclick="filterSection('games')" class="tab-btn px-4 py-1 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="games">Games</button>
-                <button onclick="filterSection('tools')" class="tab-btn px-4 py-1 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="tools">API's/Tools/Others</button>
+                <button onclick="filterSection('all')" class="tab-btn active px-4 py-2 text-xs font-bold rounded-full border border-slate-700 transition-all" data-filter="all">All</button>
+                <button onclick="filterSection('erp')" class="tab-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="erp">ERP</button>
+                <button onclick="filterSection('web')" class="tab-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="web">Web</button>
+                <button onclick="filterSection('games')" class="tab-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="games">Games</button>
+                <button onclick="filterSection('tools')" class="tab-btn px-4 py-2 text-xs font-bold rounded-full border border-slate-700 text-slate-400 hover:text-white transition-all" data-filter="tools">API's/Tools</button>
             </div>
         
             <div class="grid grid-cols-1 gap-4">
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="erp">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">Product Inventory Management System</h3>
+                            <span class="text-[10px] text-accent font-mono">TypeScript &bull; Next.js &bull; CSS &bull; JavaScript</span>
+                        </div>
+                        <a href="https://github.com/Erzan12/product-inventory-frontend" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">CODE</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Core business logic for cart systems, inventory tracking, and order processing using Object-Oriented principles</p>
+                </div>
+        
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="erp">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">Project ERP</h3>
+                            <span class="text-[10px] text-accent font-mono">Typescript &bull; Prisma &bull; Nestjs &bull; Next.js</span>
+                        </div>
+                        <a href="https://github.com/Erzan12/Project-Erp" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">CODE</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Core business logic for ERP management systems combining with different core modules in a real world scenario.</p>
+                </div>
+
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="web">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">SLSU Clinic Appointment System</h3>
+                            <span class="text-[10px] text-accent font-mono">JavaScript &bull; PHP &bull; Blade &bull; Laravel</span>
+                        </div>
+                        <a href="https://github.com/Erzan12/slsu-cas" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">CODE</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">This was my first system I have develop along with my mentors, this is for the University clinic and was propose so that all the appointments and process inside the clinic will be paperless.</p>
+                </div>
+
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="web">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">SLSU Medical Clinic</h3>
+                            <span class="text-[10px] text-accent font-mono">JavaScript &bull; PHP &bull; Blade &bull; Laravel</span>
+                        </div>
+                        <a href="https://github.com/Erzan12/medical-clinic" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">CODE</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">After our first defense and proposal, the SLSU CAS system was revamp due to the changes made in the db schema and layout</p>
+                </div>
+
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="web">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">QR Attendance</h3>
+                            <span class="text-[10px] text-accent font-mono">JavaScript &bull; PHP &bull; Blade &bull; Laravel</span>
+                        </div>
+                        <a href="https://github.com/Erzan12/qr-code-attendance-management-system" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">CODE</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">This was my first freelance project, it focuses on the campus or university's attendance during events scanning through a generated QR code and also reports. For faculties and students</p>
+                </div>
+
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="web">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">LTPMS-WEB</h3>
+                            <span class="text-[10px] text-accent font-mono">JavaScript &bull; PHP &bull; Blade &bull; Laravel</span>
+                        </div>
+                        <a href="https://github.com/Erzan12/ltpms-web" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">CODE</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">This was my second freelance project, it is a Livestock Tagging and Profiling Management System using wireless technology. For context it tracks, record, and monitor the livestock that has been registered in this system</p>
+                </div>
+
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">Restaurant RESTFUL API</h3>
+                            <span class="text-[10px] text-accent font-mono">CI4 &bull; CSS &bull; PHP &bull; JavaScript</span>
+                        </div>
+                        <a href="https://github.com/Erzan12/Restaurant-RESTful-API-Based" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">DEMO</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">This is a Restaurant API with category, customer, menu, orders and user. I also implemented jwt filter and added a auth controller for user registration and log in </p>
+                </div>
+        
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">Task Manager API with NestJs</h3>
+                            <span class="text-[10px] text-accent font-mono">TypeScript &bull; JavaScript &bull; NestJs</span>
+                        </div>
+                        <a href="https://github.com/Erzan12/task-manager-api" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">DEMO</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">This is a simple implementation of nestjs with user authentication and user task management</p>
+                </div>
+
+                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-sm uppercase">Expense Tracker API</h3>
+                            <span class="text-[10px] text-accent font-mono">TypeScript &bull; JavaScript &bull; NestJs</span>
+                        </div>
+                        <a href="https://github.com/Erzan12/Expense-Tracker" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">DEMO</a>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">This is an api for tracking user or customer tracking its expenses with auth implementation</p>
+                </div>
 
                 <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
                     <div class="flex justify-between items-start mb-2">
                         <div>
                             <h3 class="font-bold text-white text-sm uppercase">Post Management API</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
+                            <span class="text-[10px] text-accent font-mono">TypeScript &bull; JavaScript &bull; NestJs</span>
                         </div>
-                        <a href="https://github.com/Erzan12/Post-Management-API" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
+                        <a href="https://github.com/Erzan12/Post-Management-API" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">DEMO</a>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">this is a post management api where users can post blogs, add comments, reacts and add replies</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">This is an api used for users to post blogs, add comments, add tags and also reactions with auth implementation JWT</p>
                 </div>
-
 
                 <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
                     <div class="flex justify-between items-start mb-2">
                         <div>
-                            <h3 class="font-bold text-white text-sm uppercase">Erzan12</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
+                            <h3 class="font-bold text-white text-sm uppercase">Beginner Project</h3>
+                            <span class="text-[10px] text-accent font-mono">HTML5 &bull; CSS</span>
                         </div>
-                        <a href="https://erzan12.github.io/Erzan12/" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">DEMO</a>
+                        <a href="https://github.com/Erzan12/beginner-project" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">DEMO</a>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">this is my personal portfolio with automation script using python</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">This is just collection of me testing and trying different task when i was just getting started</p>
                 </div>
-
 
                 <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
                     <div class="flex justify-between items-start mb-2">
                         <div>
-                            <h3 class="font-bold text-white text-sm uppercase">Expense Tracker</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
+                            <h3 class="font-bold text-white text-sm uppercase">Modern Website Login Register UI</h3>
+                            <span class="text-[10px] text-accent font-mono">HTML5 &bull; CSS</span>
                         </div>
-                        <a href="https://github.com/Erzan12/Expense-Tracker" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
+                        <a href="https://erzan12.github.io/modern-website-login-register-UI/" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">DEMO</a>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">this is an api tracking the consumer or user expenses</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">A simple but modernistic design of user log in and registration form</p>
                 </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="web">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">ltpms web</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/ltpms-web" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">Livestock Tagging and Profiling Management System Using Wireless Technology</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="erp">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">qr code attendance management system</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/qr-code-attendance-management-system" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">this is project is for faculties and students scanning for generated qr code for convenient attendance during events</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="web">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">slsu clinic appointment system</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/slsu-clinic-appointment-system" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">this is develop intended for the uninersity clinic to be paperless and all the appointments will be made online</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="erp">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">Project Erp</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/Project-Erp" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">this is a fullstack ERP management based system, currently in development.</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="erp">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">Product Inventory Management System</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/Product-Inventory-Management-System" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">full stack product inventory management system with typescript, prisma, javascipt and postgres</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">graphql</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/graphql" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">getting started with graphql</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">simple fullstack crud graphql apollo</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/simple-fullstack-crud-graphql-apollo" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">this is a simple fullstack crud on graphql with apollo server</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">sample</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/sample" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">simple crud</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/simple-crud" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">simple_profile</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/simple_profile" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">creating a simple profile </p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="erp">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">project erp auth</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/project-erp-auth" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">project jwt strategy with middleware</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/project-jwt-strategy-with-middleware" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="erp">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">product inventory frontend</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/product-inventory-frontend" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="erp">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">product inventory api</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/product-inventory-api" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">Restaurant RESTful API Based</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/Restaurant-RESTful-API-Based" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">task manager api</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/task-manager-api" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">php</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/php" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">todo php project</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/todo-php-project" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="erp">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">inventory system</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/inventory-system" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">todo app Avega Assessment</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/todo-app-Avega-Assessment" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">google drive transfer</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/google-drive-transfer" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="erp">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">Task and Project Management System</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/Task-and-Project-Management-System" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">Project Name: Task and Project Management System  Objective: Build a web-based system using Laravel, PHP, and XAMPP to help users organize, manage, and track projects and tasks efficiently. </p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">modern website login register UI</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/modern-website-login-register-UI" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">HTML CSS and JAVASCRIPT</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">simple php system</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/simple-php-system" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">Creative Login and Registration form In HTML, CSS & PHP</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">blog posting</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/blog-posting" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">html css </h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/html-css-" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">html and css full course</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="tools">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">beginner project</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/beginner-project" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">No description provided</p>
-                </div>
-
-
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="web">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase">medical clinic</h3>
-                            <span class="text-[10px] text-accent font-mono">Code Repository</span>
-                        </div>
-                        <a href="https://github.com/Erzan12/medical-clinic" class="text-[10px] px-2 py-1 rounded bg-slate-700 hover:bg-white hover:text-maritime transition-all font-bold">CODE</a>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">update to slsu-cas</p>
-                </div>
-
             </div>
         </section>
 
-        <section class="w-full text-left pt-6 border-t border-slate-800">
-            <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <span class="text-accent"><i class="fas fa-toolbox"></i></span> Skill Stack
+        <section class="w-full text-left pt-6 border-t border-slate-800 scroll-reveal">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <span class="text-accent"><i class="fas fa-code"></i></span> 
+                <span class="text-gradient">Skill Stack</span>
             </h2>
             <div class="grid grid-cols-2 gap-3">
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
-                    <img src="https://cdn.simpleicons.org/php/38bdf8" class="w-5 h-5" alt="Java">
+                <div class="skill-card bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/php/38bdf8" class="w-6 h-6" alt="PHP">
                     <div>
                         <span class="block font-bold text-slate-200 text-xs">PHP/TypeScript</span>
-                        <span class="block text-[10px] text-slate-500">Programming Language</span>
+                        <span class="block text-[10px] text-slate-500">Backend Development</span>
                     </div>
                 </div>
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
-                    <img src="https://cdn.simpleicons.org/laravel/38bdf8" class="w-5 h-5" alt="Spring">
+                <div class="skill-card bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/laravel/38bdf8" class="w-6 h-6" alt="Laravel">
                     <div>
-                        <span class="block font-bold text-slate-200 text-xs">Laravel/NestJs/CodeIgniter</span>
+                        <span class="block font-bold text-slate-200 text-xs">Laravel/NestJs</span>
                         <span class="block text-[10px] text-slate-500">Frameworks</span>
                     </div>
                 </div>
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
-                    <img src="https://cdn.simpleicons.org/mysql/38bdf8" class="w-5 h-5" alt="SQL">
+                <div class="skill-card bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/mysql/38bdf8" class="w-6 h-6" alt="MySQL">
                     <div>
                         <span class="block font-bold text-slate-200 text-xs">MySQL/PostgreSQL</span>
                         <span class="block text-[10px] text-slate-500">Database Design</span>
                     </div>
                 </div>
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
-                    <img src="https://cdn.simpleicons.org/javascript/38bdf8" class="w-5 h-5" alt="JS">
+                <div class="skill-card bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/javascript/38bdf8" class="w-6 h-6" alt="JavaScript">
                     <div>
-                        <span class="block font-bold text-slate-200 text-xs">JavaScript/CSS/HTML/</span>
-                        <span class="block text-[10px] text-slate-500">Web Interaction</span>
+                        <span class="block font-bold text-slate-200 text-xs">JavaScript/CSS</span>
+                        <span class="block text-[10px] text-slate-500">Frontend</span>
                     </div>
                 </div>
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
-                    <img src="https://cdn.simpleicons.org/git/38bdf8" class="w-5 h-5" alt="Git">
+                <div class="skill-card bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/git/38bdf8" class="w-6 h-6" alt="Git">
                     <div>
                         <span class="block font-bold text-slate-200 text-xs">Git/GitHub</span>
                         <span class="block text-[10px] text-slate-500">Version Control</span>
                     </div>
                 </div>
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
-                    <img src="https://cdn.simpleicons.org/tailwindcss/38bdf8" class="w-5 h-5" alt="Tailwind">
+                <div class="skill-card bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/tailwindcss/38bdf8" class="w-6 h-6" alt="Tailwind">
                     <div>
-                        <span class="block font-bold text-slate-200 text-xs">Tailwind</span>
+                        <span class="block font-bold text-slate-200 text-xs">Tailwind CSS</span>
                         <span class="block text-[10px] text-slate-500">Modern Styling</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="w-full text-left pt-6 border-t border-slate-800">
-            <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <span class="text-accent"><i class="fas fa-toolbox"></i></span> Tools
+        <section class="w-full text-left pt-6 border-t border-slate-800 scroll-reveal">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <span class="text-accent"><i class="fas fa-wrench"></i></span> 
+                <span class="text-gradient">Development Tools</span>
             </h2>
             <div class="grid grid-cols-2 gap-3">
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
-                    <img src="https://cdn.simpleicons.org/acode/38bdf8" class="w-5 h-5" alt="Git">
-                    <span class="text-xs font-bold text-slate-200">VsCode</span>
+                <div class="skill-card bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/visualstudiocode/38bdf8" class="w-5 h-5" alt="VSCode">
+                    <span class="text-xs font-bold text-slate-200">VS Code</span>
                 </div>
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
-                    <img src="https://cdn.simpleicons.org/git/38bdf8" class="w-5 h-5" alt="Java">
-                    <span class="text-xs font-bold text-slate-200">GitBash</span>
+                <div class="skill-card bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/git/38bdf8" class="w-5 h-5" alt="GitBash">
+                    <span class="text-xs font-bold text-slate-200">Git Bash</span>
                 </div>
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
-                    <img src="https://cdn.simpleicons.org/git/38bdf8" class="w-5 h-5" alt="Spring">
-                    <span class="text-xs font-bold text-slate-200">GitFork</span>
+                <div class="skill-card bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/git/38bdf8" class="w-5 h-5" alt="GitFork">
+                    <span class="text-xs font-bold text-slate-200">Git Fork</span>
                 </div>
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
-                    <img src="https://cdn.simpleicons.org/docker/38bdf8" class="w-5 h-5" alt="JS">
+                <div class="skill-card bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/docker/38bdf8" class="w-5 h-5" alt="Docker">
                     <span class="text-xs font-bold text-slate-200">Docker</span>
                 </div>
-                <div class="bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
-                    <img src="https://cdn.simpleicons.org/postman/38bdf8" class="w-5 h-5" alt="Git">
+                <div class="skill-card bg-slate-800/30 p-3 rounded-lg border border-slate-700/50 flex items-center gap-3">
+                    <img src="https://cdn.simpleicons.org/postman/38bdf8" class="w-5 h-5" alt="Postman">
                     <span class="text-xs font-bold text-slate-200">Postman API</span>
                 </div>
             </div>
         </section>
 
-        <footer class="text-[10px] text-slate-600 pt-10 pb-5 uppercase tracking-widest">
-            &copy; 2026 Erzan &bull; Built with Tailwind CSS
+        <footer class="text-[10px] text-slate-500 pt-10 pb-5 uppercase tracking-widest text-center">
+            <p class="mb-2">&copy; 2026 Erzan &bull; Auto-Updated Daily</p>
+            <p class="text-slate-600">Built with Tailwind CSS & GitHub Actions</p>
         </footer>
     </main>
 
