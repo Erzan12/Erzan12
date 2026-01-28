@@ -2,8 +2,8 @@ name: Update Portfolio
 
 on:
   schedule:
-    # Runs at midnight UTC (8:00 AM PHT) every day
-    - cron: '0 0 * * *'
+    # Runs at midnight UTC (12:00 AM PHT) every day
+    - cron: '0 16 * * *'
   workflow_dispatch: # Allows manual trigger
   push: 
     branches:
