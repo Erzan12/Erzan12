@@ -81,16 +81,16 @@ def generate_project_html(repos):
         
         # Generate HTML - Updated to match enhanced template
         html = f'''
-                <div class="project-item link-card bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4" data-category="{category}">
+                <a href="{link_url}" target="_blank" class="project-item link-card block bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4 no-underline group" data-category="{category}">
                     <div class="flex justify-between items-start mb-2">
                         <div>
-                            <h3 class="font-bold text-white text-sm uppercase">{repo['name'].replace('-', ' ')}</h3>
+                            <h3 class="font-bold text-white text-sm uppercase group-hover:text-accent transition-colors">{repo['name'].replace('-', ' ')}</h3>
                             <span class="text-[10px] text-accent font-mono">{tech_stack}</span>
                         </div>
-                        <a href="{link_url}" class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 hover:from-accent hover:to-blue-500 hover:text-maritime transition-all font-bold border border-slate-600 hover:border-accent">{link_text}</a>
+                        <span class="text-[10px] px-3 py-1.5 rounded-lg bg-slate-700 text-white font-bold border border-slate-600 group-hover:bg-accent group-hover:text-maritime group-hover:border-accent transition-all">{link_text}</span>
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed">{repo['description'] or 'No description provided'}</p>
-                </div>
+                </a>
 '''
         project_html.append(html)
     
