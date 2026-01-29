@@ -57,12 +57,116 @@ def fetch_github_repos():
         print(f"Error fetching repos: {e}")
         return []
 
+# def generate_project_html(repos):
+#     """Generate HTML for project items"""
+#     project_html = []
+    
+#     for repo in repos:
+#         # Fetch languages for the repo
+#         languages = {}
+#         try:
+#             lang_response = requests.get(repo['languages_url'])
+#             if lang_response.status_code == 200:
+#                 languages = lang_response.json()
+#         except:
+#             pass
+        
+#         # Get category and tech stack
+#         category = get_category(repo['name'], repo.get('topics', []), repo['description'])
+#         tech_stack = get_tech_stack(languages, repo.get('topics', []))
+        
+#         # Determine link (homepage or repo URL)
+#         link_url = repo['homepage'] if repo['homepage'] else repo['html_url']
+#         link_text = "DEMO" if repo['homepage'] else "CODE"
+        
+#         # Generate HTML - Updated to match enhanced template
+#         html = f'''
+#                 <a href="{link_url}" target="_blank" class="project-item link-card block bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4 no-underline group" data-category="{category}">
+#                     <div class="flex justify-between items-start mb-2">
+#                         <div>
+#                             <h3 class="font-bold text-white text-sm uppercase group-hover:text-accent transition-colors">{repo['name'].replace('-', ' ')}</h3>
+#                             <span class="text-[10px] text-accent font-mono">{tech_stack}</span>
+#                         </div>
+#                         <span class="text-[10px] px-3 py-1.5 rounded-lg bg-slate-700 text-white font-bold border border-slate-600 group-hover:bg-accent group-hover:text-maritime group-hover:border-accent transition-all">{link_text}</span>
+#                     </div>
+#                     <p class="text-xs text-slate-400 leading-relaxed">{repo['description'] or 'No description provided'}</p>
+#                 </a>
+# '''
+#         project_html.append(html)
+    
+#     return '\n'.join(project_html)
+
+# def generate_project_html(repos):
+#     """Generate HTML for project items with CODE + DEMO buttons"""
+#     project_html = []
+
+#     for repo in repos:
+#         # Fetch languages
+#         languages = {}
+#         try:
+#             lang_response = requests.get(repo['languages_url'])
+#             if lang_response.status_code == 200:
+#                 languages = lang_response.json()
+#         except:
+#             pass
+
+#         category = get_category(repo['name'], repo.get('topics', []), repo['description'])
+#         tech_stack = get_tech_stack(languages, repo.get('topics', []))
+
+#         repo_url = repo['html_url']
+#         demo_url = repo['homepage']  # GitHub Pages / Actions
+
+#         demo_button = ""
+#         if demo_url:
+#             demo_button = f'''
+#                 <a href="{demo_url}" target="_blank"
+#                    class="text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800
+#                           hover:from-accent hover:to-blue-500 hover:text-maritime
+#                           font-bold border border-slate-600 hover:border-accent transition-all">
+#                     DEMO
+#                 </a>
+#             '''
+
+#         html = f'''
+#         <div class="project-item link-card bg-slate-800/30 border border-slate-700
+#                     hover:border-accent rounded-xl p-4 group"
+#              data-category="{category}">
+             
+#             <div class="flex justify-between items-start mb-2 gap-2">
+#                 <div>
+#                     <h3 class="font-bold text-white text-sm uppercase group-hover:text-accent transition-colors">
+#                         {repo['name'].replace('-', ' ')}
+#                     </h3>
+#                     <span class="text-[10px] text-accent font-mono">{tech_stack}</span>
+#                 </div>
+
+#                 <div class="flex gap-2">
+#                     <a href="{repo_url}" target="_blank"
+#                        class="text-[10px] px-3 py-1.5 rounded-lg bg-slate-700 text-white
+#                               font-bold border border-slate-600
+#                               hover:bg-accent hover:text-maritime hover:border-accent transition-all">
+#                         CODE
+#                     </a>
+
+#                     {demo_button}
+#                 </div>
+#             </div>
+
+#             <p class="text-xs text-slate-400 leading-relaxed">
+#                 {repo['description'] or 'No description provided'}
+#             </p>
+#         </div>
+#         '''
+#         project_html.append(html)
+
+#     return '\n'.join(project_html)
+
 def generate_project_html(repos):
-    """Generate HTML for project items"""
+    """Generate HTML for project items using Stretched Link technique"""
     project_html = []
     
     for repo in repos:
-        # Fetch languages for the repo
+        # Fetch languages
         languages = {}
         try:
             lang_response = requests.get(repo['languages_url'])
@@ -71,27 +175,61 @@ def generate_project_html(repos):
         except:
             pass
         
-        # Get category and tech stack
         category = get_category(repo['name'], repo.get('topics', []), repo['description'])
         tech_stack = get_tech_stack(languages, repo.get('topics', []))
         
-        # Determine link (homepage or repo URL)
-        link_url = repo['homepage'] if repo['homepage'] else repo['html_url']
-        link_text = "DEMO" if repo['homepage'] else "CODE"
+        repo_url = repo['html_url']
+        demo_url = repo['homepage']
         
-        # Generate HTML - Updated to match enhanced template
+        # 1. PREPARE DEMO BUTTON
+        # Note the 'relative z-10'. This ensures it sits ON TOP of the stretched link.
+        demo_button = ""
+        if demo_url:
+            demo_button = f'''
+            <a href="{demo_url}" target="_blank" 
+               class="relative z-10 text-[10px] px-3 py-1.5 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 
+                      hover:from-accent hover:to-blue-500 hover:text-maritime 
+                      font-bold border border-slate-600 hover:border-accent transition-all">
+                DEMO
+            </a>
+            '''
+
+        # 2. GENERATE CARD HTML
+        # Key Changes:
+        # - Outer Div has 'relative'
+        # - CODE button has 'before:absolute before:inset-0'. 
+        #   This makes the click area fill the parent Div!
+        
         html = f'''
-                <a href="{link_url}" target="_blank" class="project-item link-card block bg-slate-800/30 border border-slate-700 hover:border-accent rounded-xl p-4 no-underline group" data-category="{category}">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-bold text-white text-sm uppercase group-hover:text-accent transition-colors">{repo['name'].replace('-', ' ')}</h3>
-                            <span class="text-[10px] text-accent font-mono">{tech_stack}</span>
-                        </div>
-                        <span class="text-[10px] px-3 py-1.5 rounded-lg bg-slate-700 text-white font-bold border border-slate-600 group-hover:bg-accent group-hover:text-maritime group-hover:border-accent transition-all">{link_text}</span>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">{repo['description'] or 'No description provided'}</p>
-                </a>
-'''
+        <div class="project-item link-card relative bg-slate-800/30 border border-slate-700 
+                    hover:border-accent rounded-xl p-4 group" 
+             data-category="{category}">
+             
+            <div class="flex justify-between items-start mb-2 gap-2">
+                <div>
+                    <h3 class="font-bold text-white text-sm uppercase group-hover:text-accent transition-colors">
+                        {repo['name'].replace('-', ' ')}
+                    </h3>
+                    <span class="text-[10px] text-accent font-mono">{tech_stack}</span>
+                </div>
+
+                <div class="flex gap-2">
+                    <a href="{repo_url}" target="_blank" 
+                       class="before:absolute before:inset-0 text-[10px] px-3 py-1.5 rounded-lg bg-slate-700 text-white 
+                              font-bold border border-slate-600 
+                              hover:bg-accent hover:text-maritime hover:border-accent transition-all">
+                        CODE
+                    </a>
+
+                    {demo_button}
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-400 leading-relaxed relative z-10 pointer-events-none">
+                {repo['description'] or 'No description provided'}
+            </p>
+        </div>
+        '''
         project_html.append(html)
     
     return '\n'.join(project_html)
