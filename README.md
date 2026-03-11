@@ -36,7 +36,7 @@ These cards update automatically based on my activity across all my repositories
 
 ---
 
-![Profile Views](https://komarev.com/ghpvc/?username=Erzan12&color=blue)
+![Visitors](https://komarev.com/ghpvc/?username=Erzan12&color=blue)
 
 ---
 
