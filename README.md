@@ -1,10 +1,10 @@
 # Hi there, I'm Erzan! 👋
 
-I'm a **Software Developer** focused on building robust backend systems and clean user interfaces. I enjoy solving complex problems through structured code and exploring the latest in Web technologies.
+I'm a **Software Developer** focused on building robust backend systems and clean user interfaces. I enjoy solving complex problems through structured code, aiming for scalability and exploring the latest in Web technologies. 
 
 ### 🛠 Tech Stack
-- **Languages:** PHP(CI), JavaScript, HTML/CSS, TypeScript
-- **Frameworks:** Nestjs, Laravel
+- **Languages:** PHP(CI), JavaScript, HTML/CSS, TypeScript, React
+- **Frameworks:** NestJS, Laravel, NextJS
 - **Tools:** Git, Docker, Git Fork
 - **Database:** MySQL, PostgreSQL
 
