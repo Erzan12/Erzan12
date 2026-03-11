@@ -36,7 +36,7 @@ These cards update automatically based on my activity across all my repositories
 
 ---
 
-![Visitor Count](https://profile-counter.glitch.me/Erzan12/count.svg)
+![Visitors](https://komarev.com/ghpvc/?username=Erzan12&color=blue)
 
 ---
 
