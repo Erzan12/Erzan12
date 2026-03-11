@@ -35,4 +35,9 @@ These cards update automatically based on my activity across all my repositories
 - 🌐 Portfolio: https://erzan12.github.io/Erzan12/
 
 ---
+
+![Profile Views](https://komarev.com/ghpvc/?username=Erzan12&color=blue)
+
+---
+
 *“I am not perfect, I just keep on showing up”*
