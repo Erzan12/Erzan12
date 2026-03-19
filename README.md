@@ -5,7 +5,7 @@ I'm a **Software Developer** focused on building robust backend systems and clea
 ### 🛠 Tech Stack
 - **Languages:** PHP(CI), JavaScript, HTML/CSS, TypeScript, React
 - **Frameworks:** NestJS, Laravel, NextJS
-- **Tools:** Git, Docker, Git Fork, Docusaurus
+- **Tools:** Git, Docker, Git Fork, Docusaurus, Postman API
 - **Database:** MySQL, PostgreSQL
 
 🔭 I’m currently working on backend API with nestjs and prisma with postgres.
