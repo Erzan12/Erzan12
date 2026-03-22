@@ -34,7 +34,7 @@ These cards update automatically based on my activity across all my repositories
 - 💼 LinkedIn: https://www.linkedin.com/in/earl-jan-do-303253194/
 - 🌐 Portfolio: https://erzan12.github.io/Erzan12/
 - 📖 Documentation: https://erzan-docs.vercel.app/
-- 🌐 PortfolioV2: htts://erzan-dev.vercel.app/
+- 🌐 PortfolioV2: https://erzan-dev.vercel.app/
 
 ---
 
