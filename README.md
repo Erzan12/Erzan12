@@ -42,4 +42,4 @@ These cards update automatically based on my activity across all my repositories
 
 ---
 
-*“I am not perfect, I just keep on showing up”*
+*“I aint perfect, I just keep on showing up”*
