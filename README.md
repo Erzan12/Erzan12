@@ -27,7 +27,8 @@ These cards update automatically based on my activity across all my repositories
 
 ### 📁 Featured Projects
 - **Portfolio with personal platform**: This project originally was planned to be a monorepo with documentation on docusaurus and web app portfolio with next js and both will be deployed through vercel separately, but as ideas come along I am planning to expand this to a personal platform.
-- **Product Inventory System**: This project is build with NestJS on the backend and NextJS on the frontend it is still in development, planning to add a proper documentation. This is suppose to be an ERP inventory commerce type of a system since scalability with NestJS is not a problem. I intended to use Next.JS since it is popular and can be deployed through vercel as a demo app.
+- **🛒 ShopStack — Marketplace Management and Inventory System**: This project is build with NestJS on the backend and NextJS on the frontend it is still in development, planning to add a proper documentation. This is suppose to be an ERP inventory commerce type of a system since scalability with NestJS is not a problem. I intended to use Next.JS since it is popular and can be deployed through vercel as a demo app.
+  - Live: https://shopstack-commerce.netlify.app/
 
 ### 📫 How to reach me
 - 📧 Email: do.earljan@gmail.com
