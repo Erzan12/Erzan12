@@ -45,6 +45,7 @@ These cards update automatically based on my activity across all my repositories
 - **🏗️ ERP API Project**: This project is a NestJS Enterprise API Project that I myself develop and it is now and ongoing project for my current employer consisting with **subsystems inside a company**, it highlights **my understanding and experience** on **Scalablity, Prisma ORM, Security/JWT/COOKIES, and utilizing Swagger UI API**. Deployments via Render and Supabase.
   - Live Backend Service: https://erp-api-rp7t.onrender.com/
 - **🐮 Livestock Tagging & Profiling Management System**: Livestock Tagging and Profiling Management System Using Wireless Technology** is a web-based application built with Laravel. It helps streamline livestock management by providing a **paperless, efficient, and accurate system** for tracking animal records. Deployments via Render for Laravel App and PostgresDB.
+  - Update: I just recently migrated from MySQL to PostgreSQL for this project, to further develop and enhance my understanding with PostgreSQL. I just recently released the stable version of this application v1.0.0 and added new features and multiple bugs and errors fixed. I also enhanced the Readme file added brief and attention to detail guides for users interested using this project in the future, I also added changelog file to monitor changes per release.
   - Live Application: https://ltpms-web.onrender.com
 
 ### 📫 How to reach me
