@@ -1,6 +1,6 @@
 # Hi there, I'm Erzan! 👋
 
-I'm a **Software Developer** focused on building robust backend systems and clean user interfaces. I enjoy solving complex problems through structured code, aiming for scalability and exploring the latest in Web technologies. 
+I'm a **System Developer** focused on building robust backend systems and clean user interfaces. I enjoy solving complex problems through structured code, aiming for scalability and exploring the latest in Web technologies. 
 
 ### 🛠 Tech Stack
 - **Languages:** PHP(CI), JavaScript, HTML/CSS, TypeScript, React
@@ -14,10 +14,13 @@ I'm a **Software Developer** focused on building robust backend systems and clea
 ### 💡 What's going on?
 - ✅ Currently working on backend API with nestjs and prisma with postgres.
 - ✅ Currently learning typescript, graphql, and orm's.
-- ☐  Building new projects with free tier deployments to showcase my experience not just by development but also handling deployments with CI/CD feature, and to add live Demo.
-- ☐  Updating my new personal portfolio and converting it into CMS portfolio approach.
-- ☐  Continuous updates and improvements on my deployed and on going development projects utilizing different resources and tech stack for self development.
-- ☐  Planned to work on my first Laravel Projects and to add live Demo for portfoliio purposes.
+- ✅ Building new projects with free tier deployments to showcase my experience not just by development but also handling deployments with CI/CD feature, and to add live Demo.
+- ✅ Updating my new personal portfolio and converting it into CMS portfolio approach.
+- ✅ Continuous updates and improvements on my deployed and on going development projects utilizing different resources and tech stack for self development.
+- ✅ Planned to work on my first Laravel Projects and to add live Demo for portfoliio purposes.
+- ☐  To make chatbot or chat messaging app
+- ☐  To make task management application
+- ☐  To make tools and automate scripts that everyone can use
 
 ---
 
