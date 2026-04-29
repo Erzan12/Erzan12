@@ -4,7 +4,7 @@ I'm a **Software Developer** focused on building robust backend systems and clea
 
 ### 🛠 Tech Stack
 - **Languages:** PHP(CI), JavaScript, HTML/CSS, TypeScript, React
-- **Frameworks:** NestJS, Laravel, NextJS
+- **Frameworks:** NestJS, Laravel, NextJS, CodeIgniter
 - **Tools:** Git, Docker, Git Fork, Docusaurus, Postman API, Mermaid
 - **Database:** MySQL, PostgreSQL
 - **Deployment/DevOps Tools:** Render, Supabase, Vercel, Netlify
