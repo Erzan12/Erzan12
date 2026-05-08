@@ -19,6 +19,7 @@ I'm a **System Developer** focused on building robust backend systems and clean 
 - ✅ Continuous updates and improvements on my deployed and on going development projects utilizing different resources and tech stack for self development.
 - ✅ Planned to work on my first Laravel Projects and to add live Demo for portfoliio purposes.
 - ✅ Successfully deployed my freelanced Laravel Web projects to Render, migrated from MySQL to PostgreSQL on Supabase
+- ☐  Ongoing development for my portfolio to transition to CMS type portfolio to implement content control and add role based access to users with jwt token
 - ☐  To complete my portfolio blog cms phase
 - ☐  To build react native mobile application for my laravel web projects
 - ☐  To build chatbot or chat messaging app
