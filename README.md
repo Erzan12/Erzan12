@@ -22,7 +22,7 @@ I'm a **System Developer** focused on building robust backend systems and clean 
 - ☐  Ongoing development for my portfolio to transition to CMS type portfolio to implement content control and add role based access to users with jwt token
 - ☐  To complete my portfolio blog cms phase
 - ☐  To build react native mobile application for my laravel web projects
-- ☐  To build chatbot or chat messaging app
+- ☐  To build chatbot or chat messaging app that can be integrated with my portfolio CMS later
 - ☐  To build task management application
 - ☐  To build tools and automate scripts that everyone can use
 
