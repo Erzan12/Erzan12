@@ -18,9 +18,10 @@ I'm a **System Developer** focused on building robust backend systems and clean 
 - ✅ Updating my new personal portfolio and converting it into CMS portfolio approach.
 - ✅ Continuous updates and improvements on my deployed and on going development projects utilizing different resources and tech stack for self development.
 - ✅ Planned to work on my first Laravel Projects and to add live Demo for portfoliio purposes.
-- ☐  To make chatbot or chat messaging app
-- ☐  To make task management application
-- ☐  To make tools and automate scripts that everyone can use
+- ☐  To build react native mobile application for my laravel web projects
+- ☐  To build chatbot or chat messaging app
+- ☐  To build task management application
+- ☐  To build tools and automate scripts that everyone can use
 
 ---
 
