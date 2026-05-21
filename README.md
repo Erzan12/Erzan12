@@ -3,9 +3,9 @@
 I'm a **System Developer** focused on building robust backend systems and clean user interfaces. I enjoy solving complex problems through structured code, aiming for scalability and exploring the latest in Web technologies. 
 
 ### 🛠 Tech Stack
-- **Languages:** PHP(CI), JavaScript, HTML/CSS, TypeScript, React
-- **Frameworks:** NestJS, Laravel, NextJS, CodeIgniter
-- **Tools:** Git, Docker, Git Fork, Docusaurus, Postman API, Mermaid
+- **Languages:** PHP(CI), JavaScript, HTML/CSS, TypeScript, React, Java
+- **Frameworks:** NestJS, Laravel, NextJS, CodeIgniter, Spring Boot
+- **Tools:** Git, Docker, Git Fork, Docusaurus, Postman API, Mermaid, Dbeaver
 - **Database:** MySQL, PostgreSQL
 - **Deployment/DevOps Tools:** Render, Supabase, Vercel, Netlify
 
