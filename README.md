@@ -19,9 +19,13 @@ I'm a **System Developer** focused on building robust backend systems and clean 
 - ✅ Continuous updates and improvements on my deployed and on going development projects utilizing different resources and tech stack for self development.
 - ✅ Planned to work on my first Laravel Projects and to add live Demo for portfoliio purposes.
 - ✅ Successfully deployed my freelanced Laravel Web projects to Render, migrated from MySQL to PostgreSQL on Supabase
-- ☐  90% completion for my portfolio to transition to CMS type portfolio to implement content control and add role based access to users with jwt token
+- ✅ Completed my portfolio blog cms phase
+- ✅ Completed my portfolio to transition to CMS type portfolio to implement content control
+- ✅ Added 0auth authentication for user and admin, only user that are invited for testimonies can be authenticated since records and details about the testimony are needed for the testimonies section
+- ✅ Invited user, peers and colleagues will receive mail coming from me the admin and after giving testimony the admin will verify and check if the testimony is appropriate and then it will be approved and will be displayed, rejected testimonies from users will also recieve mails about the status of their testimony
 - ☐  Upskilling my ERP experience and knowledge with Java language on Spring boot framework and also exploring Python language to further expand my experience by building intentional projects
-- ☐  To complete my portfolio blog cms phase
+- ☐  Building intentional projects with Spring boot using IntelliJ IDE, currently working with CRUD applications and diving through JWT authentications with RBAC implemented
+- ☐  Continous updates and improvements in my CMS Portfolio
 - ☐  To build react native mobile application for my laravel web projects
 - ☐  To build chatbot or chat messaging app that can be integrated with my portfolio CMS later
 - ☐  To build task management application
