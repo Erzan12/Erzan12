@@ -8,6 +8,7 @@ I'm a **System Developer** focused on building robust backend systems and clean 
 - **Tools:** Git, Docker, Git Fork, Docusaurus, Postman API, Mermaid, Dbeaver
 - **Database:** MySQL, PostgreSQL
 - **Deployment/DevOps Tools:** Render, Supabase, Vercel, Netlify
+- **AI Development:** OpenRouter, CopilotKit
 
 ---
 
@@ -26,6 +27,7 @@ I'm a **System Developer** focused on building robust backend systems and clean 
 - ☐  Upskilling my ERP experience and knowledge with Java language on Spring boot framework and also exploring Python language to further expand my experience by building intentional projects
 - ☐  Building intentional projects with Spring boot using IntelliJ IDE, currently working with CRUD applications and diving through JWT authentications with RBAC implemented
 - ☐  Continous updates and improvements in my CMS Portfolio
+- ☐  Developing my first Agentic AI personal assistant named Persona
 - ☐  To build react native mobile application for my laravel web projects
 - ☐  To build chatbot or chat messaging app that can be integrated with my portfolio CMS later
 - ☐  To build task management application
