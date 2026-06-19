@@ -6,7 +6,7 @@ I'm a **System Developer** focused on building robust backend systems and clean 
 - **Languages:** PHP(CI), JavaScript, HTML/CSS, TypeScript, React, Java
 - **Frameworks:** NestJS, Laravel, NextJS, CodeIgniter, Spring Boot
 - **Tools:** Git, Docker, Git Fork, Docusaurus, Postman API, Mermaid, Dbeaver
-- **Database:** MySQL, PostgreSQL
+- **Database:** MySQL, PostgreSQL, Prisma ORM
 - **Deployment/DevOps Tools:** Render, Supabase, Vercel, Netlify
 - **AI Development:** OpenRouter, CopilotKit, Groq
 
