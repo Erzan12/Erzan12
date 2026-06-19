@@ -8,7 +8,7 @@ I'm a **System Developer** focused on building robust backend systems and clean 
 - **Tools:** Git, Docker, Git Fork, Docusaurus, Postman API, Mermaid, Dbeaver
 - **Database:** MySQL, PostgreSQL
 - **Deployment/DevOps Tools:** Render, Supabase, Vercel, Netlify
-- **AI Development:** OpenRouter, CopilotKit
+- **AI Development:** OpenRouter, CopilotKit, Groq
 
 ---
 
