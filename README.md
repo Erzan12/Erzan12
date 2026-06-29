@@ -29,7 +29,7 @@ I'm a **System Developer** focused on building robust backend systems and clean 
 - ✅ Added Personal AI Assistant named Persona to my Portfolio CMS, with glassmorph modern design and pre defined questions added. It will be improve as time goes on
 - ✅ Persona has memory recall which means if a visitor has previous conversation with Persona if ask about what we talk earlier Persona will give a clear explaination of what happened.
 - ✅ To build chatbot or chat messaging app that can be integrated with my portfolio CMS later.
-- ☐  Building SchedGen A Generative UI AI assistant that will help you with setting schedules for meetings and calls.
+- ☐  Building SchedGen A Generative UI AI assistant that will help you with setting schedules for meetings and calls. This will also be integrated with my Portfolio CMS in the Scheduler section in landing page
 - ☐  Upskilling my ERP experience and knowledge with Java language on Spring boot framework and also exploring Python language to further expand my experience by building intentional projects
 - ☐  Continous updates and improvements in my CMS Portfolio
 - ☐  To build react native mobile application for my laravel web projects
