@@ -23,15 +23,16 @@ I'm a **System Developer** focused on building robust backend systems and clean 
 - ✅ Completed my portfolio blog cms phase
 - ✅ Completed my portfolio to transition to CMS type portfolio to implement content control
 - ✅ Added 0auth authentication for user and admin, only user that are invited for testimonies can be authenticated since records and details about the testimony are needed for the testimonies section
-- ✅ Invited user, peers and colleagues will receive mail coming from me the admin and after giving testimony the admin will verify and check if the testimony is appropriate and then it will be approved and will be displayed, rejected testimonies from users will also recieve mails about the status of their testimony
+- ✅ Invited user, peers and colleagues will receive mail coming from me the admin and after giving testimony the admin will verify and check if the testimony is appropriate and then it will be approved and will be displayed, rejected testimonies from users will also recieve mails about the status of their testimony.
+- ✅  Building intentional projects with Spring boot using IntelliJ IDE, currently working with CRUD applications and diving through JWT authentications with RBAC implemented
 - ✅ Develop my first Agentic AI personal assistant named Persona and already integrated with my CMS Portfolio.
 - ✅ Added Personal AI Assistant named Persona to my Portfolio CMS, with glassmorph modern design and pre defined questions added. It will be improve as time goes on
 - ✅ Persona has memory recall which means if a visitor has previous conversation with Persona if ask about what we talk earlier Persona will give a clear explaination of what happened.
+- ✅ To build chatbot or chat messaging app that can be integrated with my portfolio CMS later.
+- ☐  Building SchedGen A Generative UI AI assistant that will help you with setting schedules for meetings and calls.
 - ☐  Upskilling my ERP experience and knowledge with Java language on Spring boot framework and also exploring Python language to further expand my experience by building intentional projects
-- ☐  Building intentional projects with Spring boot using IntelliJ IDE, currently working with CRUD applications and diving through JWT authentications with RBAC implemented
 - ☐  Continous updates and improvements in my CMS Portfolio
 - ☐  To build react native mobile application for my laravel web projects
-- ☐  To build chatbot or chat messaging app that can be integrated with my portfolio CMS later
 - ☐  To build task management application
 - ☐  To build tools and automate scripts that everyone can use
 
