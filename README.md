@@ -77,7 +77,7 @@ These cards update automatically based on my activity across all my repositories
 
 ### 📫 How to reach me
 - 📧 Email: do.earljan@gmail.com
-- 💼 LinkedIn: https://www.linkedin.com/in/earl-jan-do-303253194/
+- 💼 LinkedIn: https://www.linkedin.com/in/ej-do/
 - 🌐 Portfolio: https://erzan12.github.io/Erzan12/
 - 📖 Documentation Platform: https://erzan-docs.vercel.app/
 - 🌐 PortfolioV2: https://erzan-dev.vercel.app/
