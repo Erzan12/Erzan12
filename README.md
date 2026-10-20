@@ -32,12 +32,12 @@ I'm a **System Developer** focused on building robust backend systems and clean 
 - ✅ To build chatbot or chat messaging app that can be integrated with my portfolio CMS later.
 - ✅ Developed my first mobile application Know Your Holidays - since I am always looking at calendars for possible holidays on each year, I develop this as my personal tool and it can be used for others too. I haven't yet released it in Playstore since my aim right now is developing my first mobile app but I am planning in the future. The tech stack I used Expo on react native for mobile app dev, while the api backend is on Prisma ORM, Postgres on Supabase for live use of the API and NestJS framework. I have already installed the app and its working as intended and I am happy with this achievement.
 - ✅ Successfully developed QCAMS mobile and is now ready to be used, build with react native, expo go, and postgresql deployed on Render. Improvements and updates are expected to further enhance user experience.
-- ☐  Developing mobile applications for my existing deployed Laravel Projects, SLSU CAS and LTPMS.
-- ☐  Building SchedGen A Generative UI AI assistant that will help you with setting schedules for meetings and calls. This will also be integrated with my Portfolio CMS in the Scheduler section in landing page
-- ☐  Upskilling my ERP experience and knowledge with Java language on Spring boot framework and also exploring Python language to further expand my experience by building intentional projects
-- ☐  Continous updates and improvements in my CMS Portfolio
-- ☐  To build react native mobile application for my laravel web projects
-- ☐  To build task management application
+- ✅  Developing mobile applications for my existing deployed Laravel Projects, SLSU CAS and LTPMS.
+- ✅  Building SchedGen A Generative UI AI assistant that will help you with setting schedules for meetings and calls. This will also be integrated with my Portfolio CMS in the Scheduler section in landing page
+- ✅  Upskilling my ERP experience and knowledge with Java language on Spring boot framework and also exploring Python language to further expand my experience by building intentional projects
+- ✅ Continous updates and improvements in my CMS Portfolio
+- ✅  To build react native mobile application for my laravel web projects
+- ✅  To build task management application
 - ☐  To build tools and automate scripts that everyone can use
 
 ---
